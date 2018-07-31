@@ -1,4 +1,4 @@
-package com.eocoo.mgrportal.entity;
+package com.eocoo.mgrportal.domain;
 
 import javax.persistence.*;
 import java.util.Date;

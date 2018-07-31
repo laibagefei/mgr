@@ -1,6 +1,6 @@
 package com.eocoo.mgrportal.controller;
 
-import com.eocoo.mgrportal.entity.Operator;
+import com.eocoo.mgrportal.domain.Operator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
