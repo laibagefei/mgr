@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Article Index Page</title>
+    <title th:value="${article.title}"></title>
 </head>
 <body>
 <!--Top Bar -->
@@ -73,7 +73,7 @@
                     搜索
                 </div>
                 <div class="panel-body">
-                    <form role="form" class="form-inline" th:action="@{/article/search}" method="post">
+                    <form role="form" class="form-inline" th:action="@{/search}" method="post">
                         <div class="form-group">
                             <label for="title">标题</label>
                             <input type="text" class="form-control" id="title" placeholder="请输入名称">
@@ -89,50 +89,33 @@
             -->
             <div class="table-responsive">
                 <table class="table table-striped ">
-                    <thead>
                     <tr>
-                        <th>编号</th>
-                        <th>标题</th>
-                        <th>作者</th>
-                        <th>tag</th>
-                        <th>添加时间</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="article : ${res}">
+                        <td>编号</td>
                         <td th:text="${article.id}"></td>
-                        <td><a th:href="@{/article/{userId}(userId=${article.id})}" th:text="${article.title}"></a></td>
+                    </tr>
+                    <tr>
+                        <td>标题</td>
+                        <td th:text="${article.title}"></td>
+                    </tr>
+                    <tr>
+                        <td>作者</td>
                         <td th:text="${article.author}"></td>
+                    </tr>
+                    <tr>
+                        <td>tags</td>
                         <td th:text="${article.tags}"></td>
+                    </tr>
+                    <tr>
+                        <td>添加时间</td>
                         <td th:text="${article.createTime}"></td>
-                        <td>
-                            <div class="btn-group">
-                                <a href="" class="btn btn-default">修改</a><a href="" class="btn btn-default">下架</a><a href="" class="btn btn-danger">删除</a>
-                            </div>
-
-                        </td>
+                    </tr>
+                    <tr>
+                        <td>内容</td>
+                        <td th:text="${article.content}"></td>
                     </tr>
 
-                    </tbody>
                 </table>
             </div>
-            <ul class="pagination" style="float: right;">
-                <li><a href="#">&laquo;</a>
-                </li>
-                <li class="active"><a href="#">1</a>
-                </li>
-                <li class="disabled"><a href="#">2</a>
-                </li>
-                <li><a href="#">3</a>
-                </li>
-                <li><a href="#">4</a>
-                </li>
-                <li><a href="#">5</a>
-                </li>
-                <li><a href="#">&raquo;</a>
-                </li>
-            </ul>
         </div>
     </div>
 </div>
