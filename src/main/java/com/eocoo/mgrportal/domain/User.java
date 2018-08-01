@@ -1,6 +1,7 @@
 package com.eocoo.mgrportal.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -24,6 +25,8 @@ public class User {
     private short age;
     @Column
     private String slogan;
+    @Column
+    private Date createTime;
 
     public Long getId() {
         return id;
@@ -95,5 +98,13 @@ public class User {
 
     public void setSlogan(String slogan) {
         this.slogan = slogan;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }
