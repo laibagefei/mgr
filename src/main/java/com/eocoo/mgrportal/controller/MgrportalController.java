@@ -5,6 +5,7 @@ import com.eocoo.mgrportal.service.vo.OperatorVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,7 +29,7 @@ public class MgrportalController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(OperatorVO op) {
+    public String login(OperatorVO op, ModelMap map) {
         if(operatorService.hasUser(op)) {
             return "redirect:/index";
         } else {
