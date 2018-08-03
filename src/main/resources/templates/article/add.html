@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head th:replace="common/header::commonHeader('Article Page')">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Article Index Page</title>
+</head>
+<body>
+<!--Top Bar -->
+<div th:include="common/topbar::commonNav"></div>
+
+<!-- Content Start -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- common menu -->
+        <div class="col-sm-2" th:include="common/menu::commonMenu"></div>
+        <div class="col-sm-10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">文章管理</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">文章列表</li>
+                </ol>
+            </nav>
+
+            <div>
+                <form role="form" class="form-inline" th:action="@{/article/search}" method="post">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="title" class="sr-only">Password</label>
+                        <input type="text" class="form-control" id="title" placeholder="试试用文章的名称、标题或作者来搜索..." size="48">
+                    </div>
+                    <button class="btn btn-outline-success mb-2" type="submit">Search</button>
+                    <div class="form-group mx-sm-3 mb-2"><a href="/article/toAddPage" class="btn btn-info">+添加</a></div>
+                </form>
+
+            </div>
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>标题</th>
+                        <th>作者</th>
+                        <th>tag</th>
+                        <th>添加时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="article : ${res}">
+                        <td th:text="${article.id}"></td>
+                        <td><a th:href="@{/article/{userId}(userId=${article.id})}" th:text="${article.title}"></a></td>
+                        <td th:text="${article.author}"></td>
+                        <td th:text="${article.tags}"></td>
+                        <td th:text="${article.createTime}"></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="" class="btn btn-outline-success">修改</a><a href="" class="btn btn-outline-secondary">下架</a><a href="" class="btn btn-outline-danger">删除</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Content End -->
+
+<!-- Footer -->
+<footer th:include="common/footer::commonFooter(${#dates.format(new java.util.Date().getTime(), 'yyyy-MM-dd hh:mm:ss')})" class="footer"></footer>
+
+</body>
+</html>
