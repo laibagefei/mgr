@@ -2,12 +2,8 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <!--<head th:replace="common/header :: header(~{::title},~{::link},~{})">-->
 <head th:replace="common/header::commonHeader('Portal Index Page')">
-<!--<head>-->
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <title>Portal Index Page</title>
 </head>
 <body>
@@ -87,22 +83,25 @@
                     </tbody>
                 </table>
             </div>
-            <ul class="pagination" style="float: right;">
-                <li><a href="#">&laquo;</a>
-                </li>
-                <li class="active"><a href="#">1</a>
-                </li>
-                <li class="disabled"><a href="#">2</a>
-                </li>
-                <li><a href="#">3</a>
-                </li>
-                <li><a href="#">4</a>
-                </li>
-                <li><a href="#">5</a>
-                </li>
-                <li><a href="#">&raquo;</a>
-                </li>
-            </ul>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
