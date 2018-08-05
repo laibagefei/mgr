@@ -9,6 +9,6 @@ create table article (id int primary key auto_increment, title varchar, author v
   create_time TIMESTAMP default current_timestamp);
 create table topic (id int primary key auto_increment, name varchar, create_time timestamp default current_timestamp);
 create table user (id bigint primary key auto_increment, email varchar, mobile varchar, pwd varchar, username varchar, avatar varchar,
-gender tinyint, age smallint, slogan varchar, create_time timestamp default current_timestamp);
+gender tinyint, age smallint, slogan varchar, region varchar, city varchar, create_time timestamp default current_timestamp);
 create table reading_note (id int primary key auto_increment,title varchar,content varchar,book_id int,book_name varchar,user_id int,
 create_time timestamp default current_timestamp);

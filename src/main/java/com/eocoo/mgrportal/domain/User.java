@@ -6,7 +6,7 @@ import java.util.Date;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String email;
@@ -14,7 +14,6 @@ public class User {
     private String mobile;
     @Column
     private String pwd;
-
     @Column
     private String username;
     @Column
@@ -22,9 +21,13 @@ public class User {
     @Column
     private byte gender;
     @Column
-    private short age;
+    private int age;
     @Column
     private String slogan;
+    @Column
+    private String region;
+    @Column
+    private String city;
     @Column
     private Date createTime;
 
@@ -84,11 +87,11 @@ public class User {
         this.gender = gender;
     }
 
-    public short getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(short age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -98,6 +101,22 @@ public class User {
 
     public void setSlogan(String slogan) {
         this.slogan = slogan;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public Date getCreateTime() {

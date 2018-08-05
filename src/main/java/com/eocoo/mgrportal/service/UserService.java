@@ -1,8 +1,9 @@
 package com.eocoo.mgrportal.service;
 
+import com.eocoo.mgrportal.controller.vo.UserVO;
 import com.eocoo.mgrportal.domain.User;
-import com.eocoo.mgrportal.service.vo.UserVO;
 import com.eocoo.mgrportal.domain.UserRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

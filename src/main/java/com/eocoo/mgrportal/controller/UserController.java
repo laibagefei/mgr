@@ -1,16 +1,20 @@
 package com.eocoo.mgrportal.controller;
 
+import com.eocoo.mgrportal.controller.vo.UserVO;
 import com.eocoo.mgrportal.domain.User;
 import com.eocoo.mgrportal.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -25,6 +29,11 @@ public class UserController {
         return "user/index";
     }
 
+    @RequestMapping("/toAddPage")
+    public String toAddPage() {
+        return "user/add";
+    }
+
     //Search
     @RequestMapping("/search")
     public String search(ModelMap map) {
@@ -35,9 +44,24 @@ public class UserController {
 
     //Add
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String postUser(@ModelAttribute User user) {
-        userService.addUser(user);
-        return "redirect:/user/";
+    public String postUser(@ModelAttribute UserVO userVo, @RequestParam("avatar") MultipartFile picFile) {
+        try {
+            String filename = picFile.getOriginalFilename();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyMMddhhmmss");
+            String newFileName = sdf.format(new Date()) + filename.substring(filename.lastIndexOf("."));
+            System.out.println(">>>>>>>>>>>>>>>. file: " + newFileName);
+            //上传图片
+            String path = "E:\\work\\mgr-portal\\src\\main\\resources\\static\\pic\\" + newFileName;
+            picFile.transferTo(new File(path));
+            User user = new User();
+            BeanUtils.copyProperties(userVo, user);
+            user.setAvatar("/pic/" + newFileName);
+            userService.addUser(user);
+            return "redirect:/user/";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
     }
 
     //Delete

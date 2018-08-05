@@ -26,6 +26,11 @@ public class ArticleController {
         return "article/index";
     }
 
+    @RequestMapping("/toAddPage")
+    public String toAddPage() {
+        return "article/add";
+    }
+
     //Search
     @RequestMapping("/search")
     public String search(ModelMap map) {
@@ -37,6 +42,7 @@ public class ArticleController {
     //Add
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String postArticle(@ModelAttribute Article article) {
+        System.out.println("######################## " + article.getTitle());
         articleService.addArticle(article);
         return "redirect:/article/";
     }

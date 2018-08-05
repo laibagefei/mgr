@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head th:replace="common/header::commonHeader('Article Page')">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,6 +30,7 @@
                         <input type="text" class="form-control" id="title" placeholder="试试用文章的名称、标题或作者来搜索..." size="48">
                     </div>
                     <button class="btn btn-outline-success mb-2" type="submit">Search</button>
+                    <div class="form-group mx-sm-3 mb-2"><a href="/article/toAddPage" class="btn btn-info">+添加</a></div>
                 </form>
             </div>
             <!--
@@ -88,9 +89,8 @@
 </div>
 <!-- Content End -->
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Footer -->
+<footer th:include="common/footer::commonFooter(${#dates.format(new java.util.Date().getTime(), 'yyyy-MM-dd hh:mm:ss')})" class="footer"></footer>
+
 </body>
 </html>

@@ -1,13 +1,9 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <!-- Required meta tags -->
+<head th:replace="common/header::commonHeader('Article Detail Page')">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title th:value="${article.title}"></title>
+    <title>Article Index Page</title>
 </head>
 <body>
 <!--Top Bar -->
@@ -19,28 +15,16 @@
         <!-- common menu -->
         <div class="col-sm-2" th:include="common/menu::commonMenu"></div>
         <div class="col-sm-10">
-            <ol class="breadcrumb">
-                <li class="active">商品管理
-                </li>
-                <li class="active">商品列表
-                </li>
-            </ol>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">文章管理</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">文章详情</li>
+                </ol>
+            </nav>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    搜索
-                </div>
-                <div class="panel-body">
-                    <form role="form" class="form-inline" th:action="@{/article/search}" method="post">
-                        <div class="form-group">
-                            <label for="title">标题</label>
-                            <input type="text" class="form-control" id="title" placeholder="请输入名称">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-default">搜索</button>
-                        </div>
-                    </form>
-                </div>
+            <div>
+                <h3 th:text="${article.title}"></h3>
             </div>
             <!--
                 列表展示
@@ -80,6 +64,7 @@
 <!-- Content End -->
 
 <!-- Footer -->
-<div th:include="common/footer::commonFooter(${#dates.format(new java.util.Date().getTime(), 'yyyy-MM-dd hh:mm:ss')})"></div>
+<footer th:include="common/footer::commonFooter(${#dates.format(new java.util.Date().getTime(), 'yyyy-MM-dd hh:mm:ss')})" class="footer"></footer>
+
 </body>
 </html>

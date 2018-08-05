@@ -97,6 +97,7 @@
 <!-- Content End -->
 
 <!-- Footer -->
-<div th:include="common/footer::commonFooter(${#dates.format(new java.util.Date().getTime(), 'yyyy-MM-dd hh:mm:ss')})"></div>
+<footer th:include="common/footer::commonFooter(${#dates.format(new java.util.Date().getTime(), 'yyyy-MM-dd hh:mm:ss')})" class="footer"></footer>
+
 </body>
 </html>
