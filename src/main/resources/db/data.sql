@@ -7,15 +7,15 @@ insert into article(title,author,content,tags) values ('产品导流中的一些
 insert into article(title,author,content,tags) values ('亚马逊商品页面的5大转化元素','增长那点事儿','本文介绍了亚马逊商品页面的5个提高下单率的营销策略，一起来看看~ 亚马逊是全球五大科技公司之一，具有庞大的经济规模和收购各个行业零售商的能力，拥有超过3亿用户和...','');
 
 
-insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
-'抹茶酱','/pic/1.jpg','0','23','');
-insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
-'大飞哥','/pic/2.jpg','1','39','');
-insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
-'突突7.0','/pic/3.jpg','1','32','');
-insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
-'蜜糖酱','/pic/4.jpg','0','30','eveything old can be new again');
-insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
-'野原小小葵','/pic/5.jpg','0','29','');
-insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
-'小脚丫','/pic/6.jpg','0','34','生活就是一步一个小脚印');
+-- insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
+-- '抹茶酱','/pic/1.jpg','0','23','');
+-- insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
+-- '大飞哥','/pic/2.jpg','1','39','');
+-- insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
+-- '突突7.0','/pic/3.jpg','1','32','');
+-- insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
+-- '蜜糖酱','/pic/4.jpg','0','30','eveything old can be new again');
+-- insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
+-- '野原小小葵','/pic/5.jpg','0','29','');
+-- insert into user(email,mobile,pwd,username,avatar,gender,age,slogan) values ('123456@qq.com','13910098975','123456',
+-- '小脚丫','/pic/6.jpg','0','34','生活就是一步一个小脚印');
