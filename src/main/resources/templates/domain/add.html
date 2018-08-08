@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head th:replace="common/header::commonHeader('Add User Page')">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add User Page</title>
+</head>
+<body>
+<!--Top Bar -->
+<div th:include="common/topbar::commonNav"></div>
+
+<!-- Content Start -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- common menu -->
+        <div class="col-sm-2" th:include="common/menu::commonMenu"></div>
+        <div class="col-sm-10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">用户管理</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">添加用户</li>
+                </ol>
+            </nav>
+
+            <div>
+                <h3>添加用户</h3>
+            </div>
+
+            <!-- Add Form  -->
+            <form th:action="@{/user/}" method="post" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="mobile">手机号</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="手机号">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="pwd">Password</label>
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="username">用户名</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+                    </div>
+                    <div class="form-group col-md-9">
+                        <label for="slogan">一句话描述</label>
+                        <input type="text" class="form-control" id="slogan" placeholder="一句话描述">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadio1" name="gender" class="custom-control-input" value="1">
+                            <label class="custom-control-label" for="customRadio1">男</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadio2" name="gender" class="custom-control-input" value="0">
+                            <label class="custom-control-label" for="customRadio2">女</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="age">年龄</label>
+                        <input type="text" class="form-control" id="age" name="age" placeholder="年龄">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="height">身高(cm)</label>
+                        <input type="text" class="form-control" id="height" placeholder="身高">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="avatar">Avatar Pic</label>
+                    <input type="file" class="form-control-file" id="avatar" name="avatar">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="region">所在区域</label>
+                        <select id="region" name="region" class="form-control"></select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="city">城市</label>
+                        <select id="city" name="city" class="form-control"></select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">OK现在加上去</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- Content End -->
+
+<!-- Footer -->
+<footer th:include="common/footer::commonFooter(${#dates.format(new java.util.Date().getTime(), 'yyyy-MM-dd hh:mm:ss')})" class="footer"></footer>
+
+<script>
+    //选择框
+    var regions = ['请选择','中国大陆','其它国家'];
+    var citys = [
+        [],
+        ['北京','上海','广州','深圳','香港','澳门','台北','成都','杭州','武汉','南京','郑州','苏州','青岛','济南','天津','大连'],
+        ['Australia','United Kingdom','Japan','Canada','Singapore','Italy','France','Germany','South Korea','Thailand','Greece']
+    ];
+    //声明获取的省份节点元素
+    var region = document.getElementById("region");
+    //声明获取的城市节点元素
+    var city = document.getElementById("city");
+
+    function createRegion() {
+        for (var i in regions) {
+            //获取下拉列表集合实例
+            var op = new Option(regions[i], regions[i]);
+            //将下拉列表各元素添加到省份元素中
+            region.options.add(op);
+        }
+    }
+
+    function createCitys(){
+        console.log('-----ccccccccc----');
+        //获取省份选中项的索引
+        var index = region.selectedIndex;
+        //将city下的所有原有option移除
+        city.options.length = 0;
+        //添加对应城市下拉列表
+        for(var i in citys[index]){
+            var op = new Option(citys[index][i],citys[index][i]);
+            city.options.add(op);
+        }
+    }
+
+        //'地区','城市'下拉框初始化
+    $(document).ready(function(){
+        console.log("hello world");
+        //创建地区
+        createRegion();
+        //选择省份后，切换对应城市列表
+        region.onchange = createCitys;
+    });
+
+
+    $(function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+</script>
+</body>
+</html>
