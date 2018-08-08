@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header::commonHeader('Domain Page')">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Domain Index Page</title>
+</head>
+<body>
+<!--Top Bar -->
+<div th:include="common/topbar::commonNav"></div>
+
+<!-- Content Start -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- common menu -->
+        <div class="col-sm-2" th:include="common/menu::commonMenu"></div>
+        <div class="col-sm-10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">领域管理</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">领域列表</li>
+                </ol>
+            </nav>
+
+            <div>
+                <form role="form" class="form-inline" th:action="@{/domain/search}" method="post">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="title" class="sr-only">Password</label>
+                        <input type="text" class="form-control" id="title" placeholder="试试email、用户名来搜索..." size="38">
+                    </div>
+                    <button class="btn btn-outline-success mb-2" type="submit">Search</button>
+                    <div class="form-group mx-sm-3 mb-2"><a href="/domain/toAddPage" class="btn btn-info">+添加</a></div>
+                </form>
+            </div>
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>名称</th>
+                        <th>Code</th>
+                        <th>父类Code</th>
+                        <th>tags</th>
+                        <th>描述</th>
+                        <th>添加时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="domain : ${res}">
+                        <td th:text="${domain.id}"></td>
+                        <td><a th:href="@{/domain/{domainId}(domainId=${domain.id})}" th:text="${domain.name}"></a></td>
+                        <td th:text="${domain.code}"></td>
+                        <td th:text="${domain.parentCode}"></td>
+                        <!--<td><img th:src="${user.avatar}" class="img-thumbnail" width="200px" /></td>-->
+                        <td th:text="${domain.tags}"></td>
+                        <td th:text="${domain.des}"></td>
+                        <td th:text="${domain.createTime}"></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="" class="btn btn-default">修改</a><a href="" class="btn btn-danger">删除</a>
+                            </div>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Content End -->
+
+<!-- Footer -->
+<footer th:include="common/footer::commonFooter(${#dates.format(new java.util.Date().getTime(), 'yyyy-MM-dd hh:mm:ss')})" class="footer"></footer>
+
+</body>
+</html>

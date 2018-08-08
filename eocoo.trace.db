@@ -4,3 +4,45 @@ create table user (id bigint primary key auto_increment, email varchar, mobile v
 2018-08-06 22:17:37 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
 create table user (id bigint primary key auto_increment, email varchar, mobile varchar, pwd varchar, username varchar, avatar varchar, gender tinyint, age smallint, slogan varchar, region varchar, city varchar, create_time timestamp default current_timestamp) [42101-197]
+2018-08-08 21:26:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE CREATE TABLE[*] ARTICLE (ID INT PRIMARY KEY AUTO_INCREMENT, TITLE VARCHAR, AUTHOR VARCHAR, CONTENT VARCHAR, TAGS VARCHAR, CREATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP) "; SQL statement:
+create table create table article (id int primary key auto_increment, title varchar, author varchar, content varchar, tags varchar, create_time TIMESTAMP default current_timestamp) [42000-197]
+2018-08-08 21:27:03 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE DOMAIN (ID INT PRIMARY KEY AUTO_INCREMENT, NAME VARCHAR) CREATE[*] TABLE ARTICLE (ID INT PRIMARY KEY AUTO_INCREMENT, TITLE VARCHAR, AUTHOR VARCHAR, CONTENT VARCHAR, TAGS VARCHAR, CREATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP) "; SQL statement:
+create table domain (id int primary key auto_increment, name varchar) create table article (id int primary key auto_increment, title varchar, author varchar, content varchar, tags varchar, create_time TIMESTAMP default current_timestamp) [42000-197]
+2018-08-08 21:27:08 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE DOMAIN (ID INT PRIMARY KEY AUTO_INCREMENT, NAME VARCHAR, ) CREATE[*] TABLE ARTICLE (ID INT PRIMARY KEY AUTO_INCREMENT, TITLE VARCHAR, AUTHOR VARCHAR, CONTENT VARCHAR, TAGS VARCHAR, CREATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP) "; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, ) create table article (id int primary key auto_increment, title varchar, author varchar, content varchar, tags varchar, create_time TIMESTAMP default current_timestamp) [42000-197]
+2018-08-08 21:27:23 jdbc[33]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE DOMAIN (ID INT PRIMARY KEY AUTO_INCREMENT, NAME VARCHAR, CODE VARCHAR) CREATE[*] TABLE ARTICLE (ID INT PRIMARY KEY AUTO_INCREMENT, TITLE VARCHAR, AUTHOR VARCHAR, CONTENT VARCHAR, TAGS VARCHAR, CREATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP) "; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar) create table article (id int primary key auto_increment, title varchar, author varchar, content varchar, tags varchar, create_time TIMESTAMP default current_timestamp) [42000-197]
+2018-08-08 21:27:40 jdbc[43]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE DOMAIN (ID INT PRIMARY KEY AUTO_INCREMENT, NAME VARCHAR, CODE VARCHAR, CREATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP()) CREATE[*] TABLE ARTICLE (ID INT PRIMARY KEY AUTO_INCREMENT, TITLE VARCHAR, AUTHOR VARCHAR, CONTENT VARCHAR, TAGS VARCHAR, CREATE_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP) "; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, create_time timestamp default current_timestamp()) create table article (id int primary key auto_increment, title varchar, author varchar, content varchar, tags varchar, create_time TIMESTAMP default current_timestamp) [42000-197]
+2018-08-08 21:28:18 jdbc[63]: exception
+org.h2.jdbc.JdbcSQLException: Table "DOMAIN" already exists; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, parent_code varchar, create_time timestamp default current_timestamp) [42101-197]
+2018-08-08 21:28:32 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLException: Table "DOMAIN" already exists; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, parent_code varchar, create_time timestamp default current_timestamp) [42101-197]
+2018-08-08 21:28:39 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLException: Table "DOMAIN" already exists; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, parent_code varchar, create_time timestamp default current_timestamp) [42101-197]
+2018-08-08 21:28:53 jdbc[93]: exception
+org.h2.jdbc.JdbcSQLException: Table "DOMAIN" already exists; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, parent_code varchar, create_time timestamp default current_timestamp) [42101-197]
+2018-08-08 21:29:21 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "DOMAIN" already exists; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, parent_code varchar, tags varchar, des varchar, create_time timestamp default current_timestamp) [42101-197]
+2018-08-08 21:29:45 jdbc[113]: exception
+org.h2.jdbc.JdbcSQLException: Table "DOMAIN" already exists; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, parent_code varchar, tags varchar, des varchar, create_time timestamp default current_timestamp) [42101-197]
+2018-08-08 21:29:52 jdbc[123]: exception
+org.h2.jdbc.JdbcSQLException: Table "DOMAIN" already exists; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, parent_code varchar, tags varchar, des varchar, create_time timestamp default current_timestamp) [42101-197]
+2018-08-08 21:29:55 jdbc[133]: exception
+org.h2.jdbc.JdbcSQLException: Table "DOMAIN" already exists; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, parent_code varchar, tags varchar, des varchar, create_time timestamp default current_timestamp) [42101-197]
+2018-08-08 21:41:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "DOMAIN" already exists; SQL statement:
+create table domain (id int primary key auto_increment, name varchar, code varchar, parent_code varchar, tags varchar, des varchar, create_time timestamp default current_timestamp) [42101-197]
